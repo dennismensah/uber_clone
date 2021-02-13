@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uber_clone/application/auth/auth_bloc.dart';
 import 'package:uber_clone/application/auth/register_form/register_form_bloc.dart';
 import 'package:uber_clone/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:uber_clone/presentation/core/auth_header_widget.dart';
 import 'package:uber_clone/presentation/routes/router.gr.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uber_clone/presentation/sign_in/widgets/sign_in_form.dart';
@@ -18,24 +19,12 @@ class RegisterForm extends HookWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            width: 100.0.w,
-            height: 25.0.h,
-            child: CustomPaint(
-              painter: ShapePainter(),
-              child: const Center(
-                  child: Icon(
-                Icons.access_alarm,
-                color: Colors.white,
-                size: 90.0,
-              )),
-            ),
-          ),
+          const AuthHeader(title: 'Register'),
           const SizedBox(
             height: 30.0,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.redAccent,
               borderRadius: BorderRadius.all(
                 Radius.circular(19.9),
@@ -60,7 +49,7 @@ class RegisterForm extends HookWidget {
                       //   color: userType.value == 1
                       //       ? Colors.white
                       //       : Colors.grey,
-                        
+
                       // ),
                     ),
                   ),
