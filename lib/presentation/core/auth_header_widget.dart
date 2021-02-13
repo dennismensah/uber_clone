@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
@@ -28,7 +29,8 @@ class ShapePainter extends CustomPainter {
 class AuthHeader extends StatelessWidget {
   final String title;
   const AuthHeader({
-    Key key,this.title,
+    Key key,
+    this.title,
   }) : super(key: key);
 
   @override
@@ -41,7 +43,20 @@ class AuthHeader extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const SizedBox(),
+            if (title == 'Sign In')
+              const SizedBox()
+            else
+              GestureDetector(
+                onTap: () => ExtendedNavigator.of(context).pop(),
+                child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20.0, top: 10.0),
+                    child: Icon(Icons.arrow_back_sharp,
+                        color: Colors.white, size: 30.0),
+                  ),
+                ),
+              ),
             const Center(
               child: FaIcon(
                 FontAwesomeIcons.locationArrow,
@@ -49,11 +64,12 @@ class AuthHeader extends StatelessWidget {
                 size: 90.0,
               ),
             ),
-             Align(
+            Align(
               alignment: Alignment.bottomRight,
               child: Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: Text(title,style:TextStyle(fontSize: 9.0.sp,color:Colors.white)),
+                child: Text(title,
+                    style: TextStyle(fontSize: 9.0.sp, color: Colors.white)),
               ),
             ),
           ],

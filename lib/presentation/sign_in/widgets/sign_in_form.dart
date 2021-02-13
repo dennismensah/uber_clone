@@ -138,7 +138,56 @@ class SignInForm extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    width: 20.0.w,
+                    child: const Divider(
+                      thickness: 2.0,
+                      color: Colors.grey,
+                    )),
+                Text('  Or  ', style: TextStyle(fontSize: 7.0.sp)),
+                SizedBox(
+                  width: 20.0.w,
+                  child: const Divider(
+                    thickness: 2.0,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CircleAvatar(
+                  backgroundColor: Colors.black12,
+                  radius: 30.0,
+                  child: FaIcon(
+                    FontAwesomeIcons.google,
+                    color: Colors.red,
+                  ),
+                ),
+                SizedBox(
+                  width: 4.0.w,
+                ),
+                const CircleAvatar(
+                  backgroundColor: Colors.black12,
+                  radius: 30.0,
+                  child: FaIcon(
+                    FontAwesomeIcons.facebook,
+                    color: Colors.blue,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -338,7 +387,6 @@ class SignInForm extends StatelessWidget {
     // );
   }
 }
-
 
 // class SignInForm extends StatelessWidget {
 //   @override

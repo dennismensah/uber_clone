@@ -27,7 +27,7 @@ class RegisterForm extends HookWidget {
             decoration: const BoxDecoration(
               color: Colors.redAccent,
               borderRadius: BorderRadius.all(
-                Radius.circular(19.9),
+                Radius.circular(20.0),
               ),
             ),
             width: 100.0.w,
@@ -38,31 +38,49 @@ class RegisterForm extends HookWidget {
                 GestureDetector(
                   onTap: () => userType.value = 0,
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: userType.value == 1
+                          ? Colors.transparent
+                          : Colors.white,
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                    margin: EdgeInsets.only(left: 0.5.w),
                     alignment: Alignment.center,
-                    color:
-                        userType.value == 1 ? Colors.transparent : Colors.white,
-                    width: 43.0.w,
-                    height: 80.0,
-                    child: const Text(
+                    width: 42.5.w,
+                    height: 70.0,
+                    child: Text(
                       'Rider',
-                      // style: TextStyle(
-                      //   color: userType.value == 1
-                      //       ? Colors.white
-                      //       : Colors.grey,
-
-                      // ),
+                      style: TextStyle(
+                          color:
+                              userType.value == 1 ? Colors.white : Colors.black,
+                          fontSize: 8.0.sp),
                     ),
                   ),
                 ),
                 GestureDetector(
                   onTap: () => userType.value = 1,
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: userType.value == 0
+                          ? Colors.transparent
+                          : Colors.white,
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                    margin: EdgeInsets.only(right: 0.5.w),
                     alignment: Alignment.center,
-                    color:
-                        userType.value == 0 ? Colors.transparent : Colors.white,
-                    width: 43.0.w,
-                    height: 80.0,
-                    child: const Text('Driver'),
+                    width: 42.5.w,
+                    height: 70.0,
+                    child: Text(
+                      'Driver',
+                      style: TextStyle(
+                          color:
+                              userType.value == 0 ? Colors.white : Colors.black,
+                          fontSize: 8.0.sp),
+                    ),
                   ),
                 ),
               ],
