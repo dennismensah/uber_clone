@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uber_clone/domain/core/errors.dart';
 import 'package:uber_clone/domain/core/value_failure.dart';
+import 'package:uber_clone/domain/core/value_validators.dart';
 import 'package:uuid/uuid.dart';
 
 @immutable
@@ -58,4 +59,18 @@ class UniqueId extends ValueObject<String> {
   }
 
   const UniqueId._(this.value);
+}
+
+class RequiredField extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory RequiredField(String input) {
+    assert(input != null);
+    return RequiredField._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const RequiredField._(this.value);
 }

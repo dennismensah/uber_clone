@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:uber_clone/domain/auth/auth_failure.dart';
 import 'package:uber_clone/domain/auth/i_auth_facade.dart';
 import 'package:uber_clone/domain/auth/value_objects.dart';
+import 'package:uber_clone/domain/core/value_objects.dart';
 
 part 'register_form_event.dart';
 part 'register_form_state.dart';
@@ -23,6 +24,18 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
     RegisterFormEvent event,
   ) async* {
     yield* event.map(
+      firstNameChanged: (e) async* {
+        yield state.copyWith(
+          firstName: RequiredField(e.firstNameStr),
+          authFailureOrSuccessOption: none(),
+        );
+      },
+      lastNameChanged: (e) async* {
+        yield state.copyWith(
+          lastName: RequiredField(e.lastNameStr),
+          authFailureOrSuccessOption: none(),
+        );
+      },
       emailChanged: (e) async* {
         yield state.copyWith(
           emailAddress: EmailAddress(e.emailStr),
@@ -32,6 +45,12 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
       passwordChanged: (e) async* {
         yield state.copyWith(
           password: Password(e.passwordStr),
+          authFailureOrSuccessOption: none(),
+        );
+      },
+      confirmPasswordChanged: (e) async* {
+        yield state.copyWith(
+          confirmPassword: Password(e.confirmPasswordStr),
           authFailureOrSuccessOption: none(),
         );
       },
@@ -51,29 +70,41 @@ class RegisterFormBloc extends Bloc<RegisterFormEvent, RegisterFormState> {
 
   Stream<RegisterFormState> _register(
     Future<Either<AuthFailure, Unit>> Function({
+      @required RequiredField firstName,
+      @required RequiredField lastName,
       @required EmailAddress emailAddress,
       @required Password password,
+      @required Password confirmPassword,
       @required PhoneNumber phoneNumber,
     })
         forwardedCall,
   ) async* {
     Either<AuthFailure, Unit> failureOrSuccess;
-
+    final isfirstNameValid = state.firstName.isValid();
+    final isLastNameValid = state.lastName.isValid();
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
+    final isconfirmPasswordValid = state.confirmPassword.isValid();
     final isPhoneNumberValid = state.phoneNumber.isValid();
 
-    if (isEmailValid && isPasswordValid && isPhoneNumberValid) {
+    if (isfirstNameValid &&
+        isLastNameValid &&
+        isEmailValid &&
+        isPasswordValid &&
+        isconfirmPasswordValid &&
+        isPhoneNumberValid) {
       yield state.copyWith(
         isSubmitting: true,
         authFailureOrSuccessOption: none(),
       );
 
       failureOrSuccess = await forwardedCall(
-        emailAddress: state.emailAddress,
-        password: state.password,
-        phoneNumber: state.phoneNumber
-      );
+          firstName: state.firstName,
+          lastName: state.lastName,
+          emailAddress: state.emailAddress,
+          password: state.password,
+          confirmPassword: state.confirmPassword,
+          phoneNumber: state.phoneNumber,);
     }
 
     yield state.copyWith(

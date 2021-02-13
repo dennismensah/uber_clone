@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,6 +9,7 @@ import 'package:uber_clone/application/auth/auth_bloc.dart';
 import 'package:uber_clone/application/auth/register_form/register_form_bloc.dart';
 import 'package:uber_clone/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:uber_clone/presentation/core/auth_header_widget.dart';
+import 'package:uber_clone/presentation/register/widgets/user_switcher_widget.dart';
 import 'package:uber_clone/presentation/routes/router.gr.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uber_clone/presentation/sign_in/widgets/sign_in_form.dart';
@@ -23,69 +25,7 @@ class RegisterForm extends HookWidget {
           const SizedBox(
             height: 30.0,
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.redAccent,
-              borderRadius: BorderRadius.all(
-                Radius.circular(20.0),
-              ),
-            ),
-            width: 100.0.w,
-            margin: EdgeInsets.symmetric(horizontal: 7.0.w),
-            height: 80.0,
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () => userType.value = 0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: userType.value == 1
-                          ? Colors.transparent
-                          : Colors.white,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20.0),
-                      ),
-                    ),
-                    margin: EdgeInsets.only(left: 0.5.w),
-                    alignment: Alignment.center,
-                    width: 42.5.w,
-                    height: 70.0,
-                    child: Text(
-                      'Rider',
-                      style: TextStyle(
-                          color:
-                              userType.value == 1 ? Colors.white : Colors.black,
-                          fontSize: 8.0.sp),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () => userType.value = 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: userType.value == 0
-                          ? Colors.transparent
-                          : Colors.white,
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20.0),
-                      ),
-                    ),
-                    margin: EdgeInsets.only(right: 0.5.w),
-                    alignment: Alignment.center,
-                    width: 42.5.w,
-                    height: 70.0,
-                    child: Text(
-                      'Driver',
-                      style: TextStyle(
-                          color:
-                              userType.value == 0 ? Colors.white : Colors.black,
-                          fontSize: 8.0.sp),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          UserTypeSwitcher(userType: userType),
           const SizedBox(
             height: 10.0,
           ),
@@ -345,3 +285,4 @@ class RegisterForm extends HookWidget {
     // );
   }
 }
+

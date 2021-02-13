@@ -9,6 +9,7 @@ import 'package:uber_clone/domain/auth/auth_failure.dart';
 import 'package:uber_clone/domain/auth/i_auth_facade.dart';
 import 'package:uber_clone/domain/auth/user.dart';
 import 'package:uber_clone/domain/auth/value_objects.dart';
+import 'package:uber_clone/domain/core/value_objects.dart';
 import './firebase_user_mapper.dart';
 import 'package:uber_clone/infrastructure/core/firestore_helpers.dart';
 
@@ -30,20 +31,31 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
+    @required RequiredField firstName,
+    @required RequiredField lastName,
     @required EmailAddress emailAddress,
     @required Password password,
+    @required Password confirmPassword,
     @required PhoneNumber phoneNumber,
   }) async {
+    final firstNameStr = firstName.getOrCrash();
+    final lastNameStr = lastName.getOrCrash();
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
-    // final phoneStr = phoneNumber.getOrCrash();
+    final phoneStr = phoneNumber.getOrCrash();
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      final userCreds = await _firebaseAuth.createUserWithEmailAndPassword(
         email: emailAddressStr,
         password: passwordStr,
       );
       final userDoc = await _fireStore.userDocument();
-      await userDoc.set({'phoneNumber':'87658756757'});
+      if (userCreds != null) {
+        await userDoc.set({
+          'firstName': firstNameStr,
+          'lastName': lastNameStr,
+          'phoneNumber': phoneStr,
+        });
+      }
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
@@ -96,8 +108,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       return right(unit);
     } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
-    }
-    on PlatformException catch(e){
+    } on PlatformException catch (e) {
       debugPrint('plat $e');
       return left(const AuthFailure.serverError());
     }

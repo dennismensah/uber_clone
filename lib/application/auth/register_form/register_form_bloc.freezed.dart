@@ -14,6 +14,20 @@ class _$RegisterFormEventTearOff {
   const _$RegisterFormEventTearOff();
 
 // ignore: unused_element
+  FirstNameChanged firstNameChanged(String firstNameStr) {
+    return FirstNameChanged(
+      firstNameStr,
+    );
+  }
+
+// ignore: unused_element
+  LastNameChanged lastNameChanged(String lastNameStr) {
+    return LastNameChanged(
+      lastNameStr,
+    );
+  }
+
+// ignore: unused_element
   EmailChanged emailChanged(String emailStr) {
     return EmailChanged(
       emailStr,
@@ -24,6 +38,13 @@ class _$RegisterFormEventTearOff {
   PasswordChanged passwordChanged(String passwordStr) {
     return PasswordChanged(
       passwordStr,
+    );
+  }
+
+// ignore: unused_element
+  ConfirmPasswordChanged confirmPasswordChanged(String confirmPasswordStr) {
+    return ConfirmPasswordChanged(
+      confirmPasswordStr,
     );
   }
 
@@ -48,30 +69,42 @@ const $RegisterFormEvent = _$RegisterFormEventTearOff();
 mixin _$RegisterFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
     @required TResult emailChanged(String emailStr),
     @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
     @required TResult phoneNumberChanged(String phoneNumberStr),
     @required TResult registerPressed(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
     TResult emailChanged(String emailStr),
     TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
     TResult phoneNumberChanged(String phoneNumberStr),
     TResult registerPressed(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
     @required TResult emailChanged(EmailChanged value),
     @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required TResult registerPressed(RegisterPressed value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
     TResult emailChanged(EmailChanged value),
     TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     TResult phoneNumberChanged(PhoneNumberChanged value),
     TResult registerPressed(RegisterPressed value),
     @required TResult orElse(),
@@ -93,6 +126,302 @@ class _$RegisterFormEventCopyWithImpl<$Res>
   final RegisterFormEvent _value;
   // ignore: unused_field
   final $Res Function(RegisterFormEvent) _then;
+}
+
+/// @nodoc
+abstract class $FirstNameChangedCopyWith<$Res> {
+  factory $FirstNameChangedCopyWith(
+          FirstNameChanged value, $Res Function(FirstNameChanged) then) =
+      _$FirstNameChangedCopyWithImpl<$Res>;
+  $Res call({String firstNameStr});
+}
+
+/// @nodoc
+class _$FirstNameChangedCopyWithImpl<$Res>
+    extends _$RegisterFormEventCopyWithImpl<$Res>
+    implements $FirstNameChangedCopyWith<$Res> {
+  _$FirstNameChangedCopyWithImpl(
+      FirstNameChanged _value, $Res Function(FirstNameChanged) _then)
+      : super(_value, (v) => _then(v as FirstNameChanged));
+
+  @override
+  FirstNameChanged get _value => super._value as FirstNameChanged;
+
+  @override
+  $Res call({
+    Object firstNameStr = freezed,
+  }) {
+    return _then(FirstNameChanged(
+      firstNameStr == freezed ? _value.firstNameStr : firstNameStr as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$FirstNameChanged implements FirstNameChanged {
+  const _$FirstNameChanged(this.firstNameStr) : assert(firstNameStr != null);
+
+  @override
+  final String firstNameStr;
+
+  @override
+  String toString() {
+    return 'RegisterFormEvent.firstNameChanged(firstNameStr: $firstNameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FirstNameChanged &&
+            (identical(other.firstNameStr, firstNameStr) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstNameStr, firstNameStr)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(firstNameStr);
+
+  @JsonKey(ignore: true)
+  @override
+  $FirstNameChangedCopyWith<FirstNameChanged> get copyWith =>
+      _$FirstNameChangedCopyWithImpl<FirstNameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
+    @required TResult emailChanged(String emailStr),
+    @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
+    @required TResult phoneNumberChanged(String phoneNumberStr),
+    @required TResult registerPressed(),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return firstNameChanged(firstNameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
+    TResult emailChanged(String emailStr),
+    TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
+    TResult phoneNumberChanged(String phoneNumberStr),
+    TResult registerPressed(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (firstNameChanged != null) {
+      return firstNameChanged(firstNameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult registerPressed(RegisterPressed value),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return firstNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult registerPressed(RegisterPressed value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (firstNameChanged != null) {
+      return firstNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FirstNameChanged implements RegisterFormEvent {
+  const factory FirstNameChanged(String firstNameStr) = _$FirstNameChanged;
+
+  String get firstNameStr;
+  @JsonKey(ignore: true)
+  $FirstNameChangedCopyWith<FirstNameChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class $LastNameChangedCopyWith<$Res> {
+  factory $LastNameChangedCopyWith(
+          LastNameChanged value, $Res Function(LastNameChanged) then) =
+      _$LastNameChangedCopyWithImpl<$Res>;
+  $Res call({String lastNameStr});
+}
+
+/// @nodoc
+class _$LastNameChangedCopyWithImpl<$Res>
+    extends _$RegisterFormEventCopyWithImpl<$Res>
+    implements $LastNameChangedCopyWith<$Res> {
+  _$LastNameChangedCopyWithImpl(
+      LastNameChanged _value, $Res Function(LastNameChanged) _then)
+      : super(_value, (v) => _then(v as LastNameChanged));
+
+  @override
+  LastNameChanged get _value => super._value as LastNameChanged;
+
+  @override
+  $Res call({
+    Object lastNameStr = freezed,
+  }) {
+    return _then(LastNameChanged(
+      lastNameStr == freezed ? _value.lastNameStr : lastNameStr as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$LastNameChanged implements LastNameChanged {
+  const _$LastNameChanged(this.lastNameStr) : assert(lastNameStr != null);
+
+  @override
+  final String lastNameStr;
+
+  @override
+  String toString() {
+    return 'RegisterFormEvent.lastNameChanged(lastNameStr: $lastNameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is LastNameChanged &&
+            (identical(other.lastNameStr, lastNameStr) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastNameStr, lastNameStr)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(lastNameStr);
+
+  @JsonKey(ignore: true)
+  @override
+  $LastNameChangedCopyWith<LastNameChanged> get copyWith =>
+      _$LastNameChangedCopyWithImpl<LastNameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
+    @required TResult emailChanged(String emailStr),
+    @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
+    @required TResult phoneNumberChanged(String phoneNumberStr),
+    @required TResult registerPressed(),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return lastNameChanged(lastNameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
+    TResult emailChanged(String emailStr),
+    TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
+    TResult phoneNumberChanged(String phoneNumberStr),
+    TResult registerPressed(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (lastNameChanged != null) {
+      return lastNameChanged(lastNameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult registerPressed(RegisterPressed value),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return lastNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult registerPressed(RegisterPressed value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (lastNameChanged != null) {
+      return lastNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LastNameChanged implements RegisterFormEvent {
+  const factory LastNameChanged(String lastNameStr) = _$LastNameChanged;
+
+  String get lastNameStr;
+  @JsonKey(ignore: true)
+  $LastNameChangedCopyWith<LastNameChanged> get copyWith;
 }
 
 /// @nodoc
@@ -157,13 +486,19 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
     @required TResult emailChanged(String emailStr),
     @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
     @required TResult phoneNumberChanged(String phoneNumberStr),
     @required TResult registerPressed(),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return emailChanged(emailStr);
@@ -172,8 +507,11 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
     TResult emailChanged(String emailStr),
     TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
     TResult phoneNumberChanged(String phoneNumberStr),
     TResult registerPressed(),
     @required TResult orElse(),
@@ -188,13 +526,19 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
     @required TResult emailChanged(EmailChanged value),
     @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required TResult registerPressed(RegisterPressed value),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return emailChanged(this);
@@ -203,8 +547,11 @@ class _$EmailChanged implements EmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
     TResult emailChanged(EmailChanged value),
     TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     TResult phoneNumberChanged(PhoneNumberChanged value),
     TResult registerPressed(RegisterPressed value),
     @required TResult orElse(),
@@ -287,13 +634,19 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
     @required TResult emailChanged(String emailStr),
     @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
     @required TResult phoneNumberChanged(String phoneNumberStr),
     @required TResult registerPressed(),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return passwordChanged(passwordStr);
@@ -302,8 +655,11 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
     TResult emailChanged(String emailStr),
     TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
     TResult phoneNumberChanged(String phoneNumberStr),
     TResult registerPressed(),
     @required TResult orElse(),
@@ -318,13 +674,19 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
     @required TResult emailChanged(EmailChanged value),
     @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required TResult registerPressed(RegisterPressed value),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return passwordChanged(this);
@@ -333,8 +695,11 @@ class _$PasswordChanged implements PasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
     TResult emailChanged(EmailChanged value),
     TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     TResult phoneNumberChanged(PhoneNumberChanged value),
     TResult registerPressed(RegisterPressed value),
     @required TResult orElse(),
@@ -353,6 +718,160 @@ abstract class PasswordChanged implements RegisterFormEvent {
   String get passwordStr;
   @JsonKey(ignore: true)
   $PasswordChangedCopyWith<PasswordChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class $ConfirmPasswordChangedCopyWith<$Res> {
+  factory $ConfirmPasswordChangedCopyWith(ConfirmPasswordChanged value,
+          $Res Function(ConfirmPasswordChanged) then) =
+      _$ConfirmPasswordChangedCopyWithImpl<$Res>;
+  $Res call({String confirmPasswordStr});
+}
+
+/// @nodoc
+class _$ConfirmPasswordChangedCopyWithImpl<$Res>
+    extends _$RegisterFormEventCopyWithImpl<$Res>
+    implements $ConfirmPasswordChangedCopyWith<$Res> {
+  _$ConfirmPasswordChangedCopyWithImpl(ConfirmPasswordChanged _value,
+      $Res Function(ConfirmPasswordChanged) _then)
+      : super(_value, (v) => _then(v as ConfirmPasswordChanged));
+
+  @override
+  ConfirmPasswordChanged get _value => super._value as ConfirmPasswordChanged;
+
+  @override
+  $Res call({
+    Object confirmPasswordStr = freezed,
+  }) {
+    return _then(ConfirmPasswordChanged(
+      confirmPasswordStr == freezed
+          ? _value.confirmPasswordStr
+          : confirmPasswordStr as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ConfirmPasswordChanged implements ConfirmPasswordChanged {
+  const _$ConfirmPasswordChanged(this.confirmPasswordStr)
+      : assert(confirmPasswordStr != null);
+
+  @override
+  final String confirmPasswordStr;
+
+  @override
+  String toString() {
+    return 'RegisterFormEvent.confirmPasswordChanged(confirmPasswordStr: $confirmPasswordStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ConfirmPasswordChanged &&
+            (identical(other.confirmPasswordStr, confirmPasswordStr) ||
+                const DeepCollectionEquality()
+                    .equals(other.confirmPasswordStr, confirmPasswordStr)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(confirmPasswordStr);
+
+  @JsonKey(ignore: true)
+  @override
+  $ConfirmPasswordChangedCopyWith<ConfirmPasswordChanged> get copyWith =>
+      _$ConfirmPasswordChangedCopyWithImpl<ConfirmPasswordChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
+    @required TResult emailChanged(String emailStr),
+    @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
+    @required TResult phoneNumberChanged(String phoneNumberStr),
+    @required TResult registerPressed(),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return confirmPasswordChanged(confirmPasswordStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
+    TResult emailChanged(String emailStr),
+    TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
+    TResult phoneNumberChanged(String phoneNumberStr),
+    TResult registerPressed(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (confirmPasswordChanged != null) {
+      return confirmPasswordChanged(confirmPasswordStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
+    @required TResult emailChanged(EmailChanged value),
+    @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    @required TResult phoneNumberChanged(PhoneNumberChanged value),
+    @required TResult registerPressed(RegisterPressed value),
+  }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(registerPressed != null);
+    return confirmPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
+    TResult emailChanged(EmailChanged value),
+    TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
+    TResult phoneNumberChanged(PhoneNumberChanged value),
+    TResult registerPressed(RegisterPressed value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (confirmPasswordChanged != null) {
+      return confirmPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConfirmPasswordChanged implements RegisterFormEvent {
+  const factory ConfirmPasswordChanged(String confirmPasswordStr) =
+      _$ConfirmPasswordChanged;
+
+  String get confirmPasswordStr;
+  @JsonKey(ignore: true)
+  $ConfirmPasswordChangedCopyWith<ConfirmPasswordChanged> get copyWith;
 }
 
 /// @nodoc
@@ -421,13 +940,19 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
     @required TResult emailChanged(String emailStr),
     @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
     @required TResult phoneNumberChanged(String phoneNumberStr),
     @required TResult registerPressed(),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return phoneNumberChanged(phoneNumberStr);
@@ -436,8 +961,11 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
     TResult emailChanged(String emailStr),
     TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
     TResult phoneNumberChanged(String phoneNumberStr),
     TResult registerPressed(),
     @required TResult orElse(),
@@ -452,13 +980,19 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
     @required TResult emailChanged(EmailChanged value),
     @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required TResult registerPressed(RegisterPressed value),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return phoneNumberChanged(this);
@@ -467,8 +1001,11 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
     TResult emailChanged(EmailChanged value),
     TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     TResult phoneNumberChanged(PhoneNumberChanged value),
     TResult registerPressed(RegisterPressed value),
     @required TResult orElse(),
@@ -529,13 +1066,19 @@ class _$RegisterPressed implements RegisterPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult firstNameChanged(String firstNameStr),
+    @required TResult lastNameChanged(String lastNameStr),
     @required TResult emailChanged(String emailStr),
     @required TResult passwordChanged(String passwordStr),
+    @required TResult confirmPasswordChanged(String confirmPasswordStr),
     @required TResult phoneNumberChanged(String phoneNumberStr),
     @required TResult registerPressed(),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return registerPressed();
@@ -544,8 +1087,11 @@ class _$RegisterPressed implements RegisterPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult firstNameChanged(String firstNameStr),
+    TResult lastNameChanged(String lastNameStr),
     TResult emailChanged(String emailStr),
     TResult passwordChanged(String passwordStr),
+    TResult confirmPasswordChanged(String confirmPasswordStr),
     TResult phoneNumberChanged(String phoneNumberStr),
     TResult registerPressed(),
     @required TResult orElse(),
@@ -560,13 +1106,19 @@ class _$RegisterPressed implements RegisterPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult firstNameChanged(FirstNameChanged value),
+    @required TResult lastNameChanged(LastNameChanged value),
     @required TResult emailChanged(EmailChanged value),
     @required TResult passwordChanged(PasswordChanged value),
+    @required TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     @required TResult phoneNumberChanged(PhoneNumberChanged value),
     @required TResult registerPressed(RegisterPressed value),
   }) {
+    assert(firstNameChanged != null);
+    assert(lastNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
+    assert(confirmPasswordChanged != null);
     assert(phoneNumberChanged != null);
     assert(registerPressed != null);
     return registerPressed(this);
@@ -575,8 +1127,11 @@ class _$RegisterPressed implements RegisterPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult firstNameChanged(FirstNameChanged value),
+    TResult lastNameChanged(LastNameChanged value),
     TResult emailChanged(EmailChanged value),
     TResult passwordChanged(PasswordChanged value),
+    TResult confirmPasswordChanged(ConfirmPasswordChanged value),
     TResult phoneNumberChanged(PhoneNumberChanged value),
     TResult registerPressed(RegisterPressed value),
     @required TResult orElse(),
@@ -599,15 +1154,21 @@ class _$RegisterFormStateTearOff {
 
 // ignore: unused_element
   _RegisterFormState call(
-      {@required EmailAddress emailAddress,
+      {@required RequiredField firstName,
+      @required RequiredField lastName,
+      @required EmailAddress emailAddress,
       @required Password password,
+      @required Password confirmPassword,
       @required PhoneNumber phoneNumber,
       @required bool showErrorMessages,
       @required bool isSubmitting,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _RegisterFormState(
+      firstName: firstName,
+      lastName: lastName,
       emailAddress: emailAddress,
       password: password,
+      confirmPassword: confirmPassword,
       phoneNumber: phoneNumber,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
@@ -622,8 +1183,11 @@ const $RegisterFormState = _$RegisterFormStateTearOff();
 
 /// @nodoc
 mixin _$RegisterFormState {
+  RequiredField get firstName;
+  RequiredField get lastName;
   EmailAddress get emailAddress;
   Password get password;
+  Password get confirmPassword;
   PhoneNumber get phoneNumber;
   bool get showErrorMessages;
   bool get isSubmitting;
@@ -639,8 +1203,11 @@ abstract class $RegisterFormStateCopyWith<$Res> {
           RegisterFormState value, $Res Function(RegisterFormState) then) =
       _$RegisterFormStateCopyWithImpl<$Res>;
   $Res call(
-      {EmailAddress emailAddress,
+      {RequiredField firstName,
+      RequiredField lastName,
+      EmailAddress emailAddress,
       Password password,
+      Password confirmPassword,
       PhoneNumber phoneNumber,
       bool showErrorMessages,
       bool isSubmitting,
@@ -658,18 +1225,28 @@ class _$RegisterFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object firstName = freezed,
+    Object lastName = freezed,
     Object emailAddress = freezed,
     Object password = freezed,
+    Object confirmPassword = freezed,
     Object phoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
+      firstName:
+          firstName == freezed ? _value.firstName : firstName as RequiredField,
+      lastName:
+          lastName == freezed ? _value.lastName : lastName as RequiredField,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress as EmailAddress,
       password: password == freezed ? _value.password : password as Password,
+      confirmPassword: confirmPassword == freezed
+          ? _value.confirmPassword
+          : confirmPassword as Password,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
@@ -693,8 +1270,11 @@ abstract class _$RegisterFormStateCopyWith<$Res>
       __$RegisterFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {EmailAddress emailAddress,
+      {RequiredField firstName,
+      RequiredField lastName,
+      EmailAddress emailAddress,
       Password password,
+      Password confirmPassword,
       PhoneNumber phoneNumber,
       bool showErrorMessages,
       bool isSubmitting,
@@ -714,18 +1294,28 @@ class __$RegisterFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object firstName = freezed,
+    Object lastName = freezed,
     Object emailAddress = freezed,
     Object password = freezed,
+    Object confirmPassword = freezed,
     Object phoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
   }) {
     return _then(_RegisterFormState(
+      firstName:
+          firstName == freezed ? _value.firstName : firstName as RequiredField,
+      lastName:
+          lastName == freezed ? _value.lastName : lastName as RequiredField,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress as EmailAddress,
       password: password == freezed ? _value.password : password as Password,
+      confirmPassword: confirmPassword == freezed
+          ? _value.confirmPassword
+          : confirmPassword as Password,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
@@ -744,23 +1334,35 @@ class __$RegisterFormStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_RegisterFormState implements _RegisterFormState {
   const _$_RegisterFormState(
-      {@required this.emailAddress,
+      {@required this.firstName,
+      @required this.lastName,
+      @required this.emailAddress,
       @required this.password,
+      @required this.confirmPassword,
       @required this.phoneNumber,
       @required this.showErrorMessages,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
-      : assert(emailAddress != null),
+      : assert(firstName != null),
+        assert(lastName != null),
+        assert(emailAddress != null),
         assert(password != null),
+        assert(confirmPassword != null),
         assert(phoneNumber != null),
         assert(showErrorMessages != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
 
   @override
+  final RequiredField firstName;
+  @override
+  final RequiredField lastName;
+  @override
   final EmailAddress emailAddress;
   @override
   final Password password;
+  @override
+  final Password confirmPassword;
   @override
   final PhoneNumber phoneNumber;
   @override
@@ -772,19 +1374,28 @@ class _$_RegisterFormState implements _RegisterFormState {
 
   @override
   String toString() {
-    return 'RegisterFormState(emailAddress: $emailAddress, password: $password, phoneNumber: $phoneNumber, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'RegisterFormState(firstName: $firstName, lastName: $lastName, emailAddress: $emailAddress, password: $password, confirmPassword: $confirmPassword, phoneNumber: $phoneNumber, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RegisterFormState &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstName, firstName)) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastName, lastName)) &&
             (identical(other.emailAddress, emailAddress) ||
                 const DeepCollectionEquality()
                     .equals(other.emailAddress, emailAddress)) &&
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
                     .equals(other.password, password)) &&
+            (identical(other.confirmPassword, confirmPassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.confirmPassword, confirmPassword)) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.phoneNumber, phoneNumber)) &&
@@ -804,8 +1415,11 @@ class _$_RegisterFormState implements _RegisterFormState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(confirmPassword) ^
       const DeepCollectionEquality().hash(phoneNumber) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
@@ -820,9 +1434,15 @@ class _$_RegisterFormState implements _RegisterFormState {
 abstract class _RegisterFormState implements RegisterFormState {
   const factory _RegisterFormState(
           {@required
+              RequiredField firstName,
+          @required
+              RequiredField lastName,
+          @required
               EmailAddress emailAddress,
           @required
               Password password,
+          @required
+              Password confirmPassword,
           @required
               PhoneNumber phoneNumber,
           @required
@@ -834,9 +1454,15 @@ abstract class _RegisterFormState implements RegisterFormState {
       _$_RegisterFormState;
 
   @override
+  RequiredField get firstName;
+  @override
+  RequiredField get lastName;
+  @override
   EmailAddress get emailAddress;
   @override
   Password get password;
+  @override
+  Password get confirmPassword;
   @override
   PhoneNumber get phoneNumber;
   @override
