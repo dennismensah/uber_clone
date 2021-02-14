@@ -12,7 +12,7 @@ class MockAuthFacade extends Mock implements IAuthFacade {}
 
 void main() {
   final mockAuthFacade = MockAuthFacade();
-  group('AuthBloc', () {
+  group('Auth Bloc', () {
     blocTest(
       'emits [] when nothing is added',
       build: () => AuthBloc(mockAuthFacade),
